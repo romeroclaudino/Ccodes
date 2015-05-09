@@ -18,7 +18,6 @@ void limpaFila(node* Fila);
 void exibeFila(node* Fila);
 void novoFinal(node* Fila);
 void removePrimeiro(node* Fila);
-int contador(node* Fila);
 
 int main(void)
 {
@@ -159,16 +158,4 @@ void removePrimeiro(node* Fila)
         Fila->prox = tmp->prox;
         free(tmp);
     }
-}
-
-int contador(node* Fila)
-{
-    int index = 0;
-    node* tmp = Fila->prox;
-    while(tmp->prox != NULL)
-    {
-        tmp = tmp->prox;
-        index++;
-    }
-    return index;
 }
