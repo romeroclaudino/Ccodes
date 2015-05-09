@@ -49,11 +49,9 @@ int obtemResposta()
     puts("\n\t\t\tEscolha uma das opções abaixo:\n");
     puts("0 - Sair.");
     puts("1 - Exibir elementos.");
-    puts("2 - Inserir elementos no início da fila.");
-    puts("3 - Inserir elementos no final da fila.");
-    puts("4 - Remover primeiro elemento da fila.");
-    puts("5 - Remover último elemento da fila.");
-    puts("5 - Limpar a fila.");
+    puts("2 - Inserir elemento na fila.");
+    puts("3 - Remover elemento na fila.");
+    puts("4 - Limpar a fila.");
 
     int resposta;  printf("\nOpção: ");  scanf("%d", &resposta);
     return resposta;
@@ -70,18 +68,12 @@ void escolhe(int resposta, node* Fila)
             exibeFila(Fila);
             break;
         case 2:
-            novoComeco(Fila);
-            break;
-        case 3:
             novoFinal(Fila);
             break;
-        case 4:
+        case 3:
             removePrimeiro(Fila);
             break;
-        case 5:
-            removeUltimo(Fila);
-            break;
-        case 6:
+        case 4:
             criaFila(Fila);
             break;
         default:
@@ -107,7 +99,7 @@ void limpaFila(node* Fila)
     if(!vazia(Fila))
     {
         node* tmp = Fila->prox;
-        while(tmp != NULL)
+        while(tmp->prox != NULL)
         {
             tmp = Fila->prox;
             Fila->prox = tmp->prox;
