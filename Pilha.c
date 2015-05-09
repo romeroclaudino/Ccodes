@@ -99,7 +99,7 @@ void limpaPilha(node* Pilha)
     if(!vazia(Pilha))
     {
         node* tmp = Pilha->prox;
-        while(tmp != NULL)
+        while(tmp->prox != NULL)
         {
             tmp = Pilha->prox;
             Pilha->prox = tmp->prox;
