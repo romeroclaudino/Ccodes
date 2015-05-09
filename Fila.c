@@ -16,10 +16,8 @@ int vazia(node* Fila);
 void criaFila(node* Fila);
 void limpaFila(node* Fila);
 void exibeFila(node* Fila);
-void novoComeco(node* Fila);
 void novoFinal(node* Fila);
 void removePrimeiro(node* Fila);
-void removeUltimo(node* Fila);
 int contador(node* Fila);
 
 int main(void)
@@ -136,23 +134,6 @@ void exibeFila(node* Fila)
     }
 }
 
-void novoComeco(node* Fila)
-{
-    node* novoItem = (node*) malloc(sizeof(node));
-    if(!novoItem)
-    {
-        puts("\nNão há memória suficiente!");
-        exit(1);
-    }
-    else
-    {
-        printf("\nInsira o número: ");  scanf("%d", &novoItem->num);
-        node* velhoComeco = Fila->prox;
-        Fila->prox = novoItem;
-        novoItem->prox = velhoComeco;
-    }
-}
-
 void novoFinal(node* Fila)
 {
     node* novoItem = (node*) malloc(sizeof(node));
@@ -185,29 +166,6 @@ void removePrimeiro(node* Fila)
         node* tmp = Fila->prox;
         Fila->prox = tmp->prox;
         free(tmp);
-    }
-}
-
-void removeUltimo(node* Fila)
-{
-    if(vazia(Fila))
-        puts("\nA fila está vazia!");
-    else
-    {
-        if(contador(Fila) == 0)
-            criaFila(Fila);
-        else
-        {
-            node* tmp = Fila->prox;
-            node* tmp2 = tmp->prox;
-            while(tmp2->prox != NULL)
-            {
-                tmp = tmp->prox;
-                tmp2 = tmp->prox;
-            }
-            tmp->prox = NULL;
-            free(tmp2);
-        }
     }
 }
 
