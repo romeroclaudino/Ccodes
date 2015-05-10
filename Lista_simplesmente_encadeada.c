@@ -3,10 +3,10 @@
 #include <locale.h>
 
 struct Node
-    {
-        int num;
-        struct Node *prox;
-    };
+{
+    int num;
+    struct Node *prox;
+};
 typedef struct Node node;
 
 //Protótipos
@@ -220,7 +220,7 @@ void removePrimeiro(node *Lista)
 void novaPosicao(node *Lista)
 {
     if(vazia(Lista))
-        puts("\nA lista está vazia! Adicine um item usando as outras opções antes.");
+        puts("\nA lista está vazia! Adicione um item usando as outras opções antes.");
     else
     {
         node *tmp = (node*)malloc(sizeof(node));
@@ -273,7 +273,7 @@ void novaPosicao(node *Lista)
 void removePosicao(node *Lista)
 {
     if(vazia(Lista))
-        puts("\nA lista está vazia! Adicine um item usando as outras opções antes.");
+        puts("\nA lista está vazia! Adicione um item usando as outras opções antes.");
     else
     {
         node *tmp = (node*)malloc(sizeof(node));
