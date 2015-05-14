@@ -5,28 +5,28 @@
 struct Node
 {
     int num;
-    struct Node *prox;
+    struct Node* prox;
 };
 typedef struct Node node;
 
 //Protótipos
-void criaLista(node *Lista);
+void criaLista(node* Lista);
 int obtemResposta(void);
-void escolhe(node *Lista, int resposta);
-void exibeLista(node *Lista);
-int vazia(node *Lista);
-void esvaziaLista(node *Lista);
-void novoComeco(node *Lista);
-void novoFinal(node *Lista);
-void removeUltimo(node *Lista);
-void removePrimeiro(node *Lista);
-void novaPosicao(node *Lista);
-void removePosicao(node *Lista);
+void escolhe(node* Lista, int resposta);
+void exibeLista(node* Lista);
+int vazia(node* Lista);
+void esvaziaLista(node* Lista);
+void novoComeco(node* Lista);
+void novoFinal(node* Lista);
+void removeUltimo(node* Lista);
+void removePrimeiro(node* Lista);
+void novaPosicao(node* Lista);
+void removePosicao(node* Lista);
 
 int main(void)
 {
     setlocale(LC_ALL, "Portuguese");
-    node *Lista = (node *) malloc(sizeof(node));
+    node* Lista = (node*) malloc(sizeof(node));
 
     if(!Lista)
     {
@@ -47,7 +47,7 @@ int main(void)
     return 0;
 }
 
-void criaLista(node *Lista)
+void criaLista(node* Lista)
 {
     Lista->prox = NULL;
 }
@@ -70,7 +70,7 @@ int obtemResposta(void)
     return resposta;
 }
 
-void escolhe(node *Lista, int resposta)
+void escolhe(node* Lista, int resposta)
 {
     switch(resposta)
     {
@@ -106,13 +106,13 @@ void escolhe(node *Lista, int resposta)
     }
 }
 
-void exibeLista(node *Lista)
+void exibeLista(node* Lista)
 {
     if(vazia(Lista))
         puts("\nA lista está vazia!");
     else
     {
-        node *tmp;
+        node* tmp;
         tmp = Lista->prox;  printf("\nItens da lista: ");
         while(tmp != NULL)
         {
@@ -123,7 +123,7 @@ void exibeLista(node *Lista)
     }
 }
 
-int vazia(node *Lista)
+int vazia(node* Lista)
 {
     if(Lista->prox == NULL)
         return 1;
@@ -131,11 +131,11 @@ int vazia(node *Lista)
         return 0;
 }
 
-void esvaziaLista(node *Lista)
+void esvaziaLista(node* Lista)
 {
     if(!vazia(Lista))
     {
-        node *tmp = Lista->prox;
+        node* tmp = Lista->prox;
         while(tmp->prox != NULL)
         {
             tmp = Lista->prox;
@@ -145,9 +145,9 @@ void esvaziaLista(node *Lista)
     }
 }
 
-void novoComeco(node *Lista)
+void novoComeco(node* Lista)
 {
-    node *novoItem = (node *) malloc(sizeof(node));
+    node* novoItem = (node* ) malloc(sizeof(node));
     if(!novoItem)
     {
         puts("\nNão há memória suficiente!");
@@ -156,15 +156,15 @@ void novoComeco(node *Lista)
     else
     {
         printf("\nInsira o número: ");  scanf("%d", &novoItem->num);
-        node *velhoComeco = Lista->prox;
+        node* velhoComeco = Lista->prox;
         Lista->prox = novoItem;
         novoItem->prox = velhoComeco;
     }
 }
 
-void novoFinal(node *Lista)
+void novoFinal(node* Lista)
 {
-    node *novoItem = (node *) malloc(sizeof(node));
+    node* novoItem = (node* ) malloc(sizeof(node));
     if(!novoItem)
     {
         puts("\nNão há memória suficiente!");
@@ -178,7 +178,7 @@ void novoFinal(node *Lista)
             Lista->prox = novoItem;
         else
         {
-            node *tmp = Lista->prox;
+            node* tmp = Lista->prox;
             while(tmp->prox != NULL)
                 tmp = tmp->prox;
 
@@ -187,14 +187,14 @@ void novoFinal(node *Lista)
     }
 }
 
-void removeUltimo(node *Lista)
+void removeUltimo(node* Lista)
 {
     if(vazia(Lista))
         puts("\nA lista está vazia!");
     else
     {
-        node *tmp = Lista->prox;
-        node *tmp2 = tmp->prox;
+        node* tmp = Lista->prox;
+        node* tmp2 = tmp->prox;
         while(tmp2->prox != NULL)
         {
             tmp = tmp->prox;
@@ -205,25 +205,25 @@ void removeUltimo(node *Lista)
     }
 }
 
-void removePrimeiro(node *Lista)
+void removePrimeiro(node* Lista)
 {
     if(vazia(Lista))
         puts("\nA lista está vazia!");
     else
     {
-        node *tmp = Lista->prox;
+        node* tmp = Lista->prox;
         Lista->prox = tmp->prox;
         free(tmp);
     }
 }
 
-void novaPosicao(node *Lista)
+void novaPosicao(node* Lista)
 {
     if(vazia(Lista))
         puts("\nA lista está vazia! Adicione um item usando as outras opções antes.");
     else
     {
-        node *tmp = (node*)malloc(sizeof(node));
+        node* tmp = (node*)malloc(sizeof(node));
         if(!tmp)
         {
             puts("\nNão há memória suficiente!");
@@ -231,7 +231,7 @@ void novaPosicao(node *Lista)
         }
         else
         {
-            node *tmp = Lista->prox;
+            node* tmp = Lista->prox;
             int indice = 0, resposta;
 
             while(tmp->prox != NULL)
@@ -251,10 +251,10 @@ void novaPosicao(node *Lista)
                 else
                 {
                     indice = 0;
-                    node *novoItem = (node *) malloc(sizeof(node));  printf("\nInsira o número: "); scanf("%d", &novoItem->num);
+                    node* novoItem = (node*) malloc(sizeof(node));  printf("\nInsira o número: "); scanf("%d", &novoItem->num);
 
-                    node *atual = Lista->prox;
-                    node *anterior = Lista;
+                    node* atual = Lista->prox;
+                    node* anterior = Lista;
                     while(indice < resposta)
                     {
                         anterior = atual;
@@ -270,13 +270,13 @@ void novaPosicao(node *Lista)
 }
 
 
-void removePosicao(node *Lista)
+void removePosicao(node* Lista)
 {
     if(vazia(Lista))
         puts("\nA lista está vazia! Adicione um item usando as outras opções antes.");
     else
     {
-        node *tmp = (node*)malloc(sizeof(node));
+        node* tmp = (node*)malloc(sizeof(node));
         if(!tmp)
         {
             puts("\nNão há memória suficiente!");
@@ -284,7 +284,7 @@ void removePosicao(node *Lista)
         }
         else
         {
-            node *tmp = Lista->prox;
+            node* tmp = Lista->prox;
             int indice = 0, resposta;
 
             while(tmp->prox != NULL)
@@ -305,8 +305,8 @@ void removePosicao(node *Lista)
                 {
                     indice = 0;
 
-                    node *atual = Lista->prox;
-                    node *anterior = Lista;
+                    node* atual = Lista->prox;
+                    node* anterior = Lista;
                     while(indice < resposta)
                     {
                         anterior = atual;

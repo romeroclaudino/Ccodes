@@ -128,7 +128,7 @@ int vazia(node* ListaI)
 void exibeLista(node* ListaI)
 {
     if(vazia(ListaI))
-        puts("\nA lista estão vazia!");
+        puts("\nA lista está vazia!");
     else
     {
         node* tmp = ListaI->prox;    printf("\nElementos da lista: ");
@@ -146,7 +146,7 @@ void esvaziaLista(node* ListaI)
     if(!vazia(ListaI))
     {
         node* tmp = ListaI->prox;
-        while(tmp->prox!= NULL)
+        while(tmp->prox != NULL)
         {
             tmp = ListaI->prox;
             ListaI->prox = tmp->prox;
@@ -161,7 +161,7 @@ void novoComeco(node* ListaI, node* ListaF)
     node* novoItem = (node*) malloc(sizeof(node));
     if(!novoItem)
     {
-        puts("\nNÃ£o há memória suficiente!");
+        puts("\nNão há memória suficiente!");
         exit(1);
     }
     else
@@ -260,7 +260,7 @@ void removeUltimo(node* ListaI, node* ListaF)
         }
     }
     else
-        puts("\nA lista estão vazia!");
+        puts("\nA lista está vazia!");
 }
 
 void novaPosicao(node* ListaI, node* ListaF)
